@@ -19,9 +19,77 @@ const DEFAULT_ADMIN: User & { password?: string } = {
   id: 'admin-1',
   name: 'Sistem Yöneticisi',
   role: 'ADMIN',
-  username: 'admin', // Basit admin
+  username: 'admin',
   password: '1234'
 };
+
+// Her zaman çalışan varsayılan test kullanıcıları
+const DEFAULT_USERS: (User & { password?: string })[] = [
+  DEFAULT_ADMIN,
+  {
+    id: 'test-1',
+    name: 'Test Kullanıcı',
+    role: 'LAWYER',
+    username: 'test',
+    password: '1234'
+  },
+  {
+    id: 'demo-1',
+    name: 'Demo Avukat',
+    role: 'LAWYER',
+    username: 'demo',
+    password: '1234'
+  },
+  {
+    id: 'mehmet-1',
+    name: 'Mehmet Yılmaz',
+    role: 'LAWYER',
+    username: 'mehmet',
+    password: '1234'
+  },
+  {
+    id: 'ayse-1',
+    name: 'Ayşe Demir',
+    role: 'LAWYER',
+    username: 'ayse',
+    password: '1234'
+  },
+  {
+    id: 'arifegul-1',
+    name: 'Arifegül',
+    role: 'LAWYER',
+    username: 'arifegul',
+    password: '12345'
+  },
+  {
+    id: 'hakan-1',
+    name: 'Hakan',
+    role: 'LAWYER',
+    username: 'hakan',
+    password: '12345'
+  },
+  {
+    id: 'erdal-1',
+    name: 'Erdal',
+    role: 'LAWYER',
+    username: 'erdal',
+    password: '12345'
+  },
+  {
+    id: 'fahri-1',
+    name: 'Fahri',
+    role: 'LAWYER',
+    username: 'fahri',
+    password: '12345'
+  },
+  {
+    id: 'sevval-1',
+    name: 'Şevval',
+    role: 'LAWYER',
+    username: 'sevval',
+    password: '12345'
+  }
+];
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -31,14 +99,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   // Başlangıçta kullanıcıları yükle
   useEffect(() => {
     const storedUsers = localStorage.getItem('lexguard_users');
+    let allUsers: (User & { password?: string })[];
+    
     if (storedUsers) {
-      setUsers(JSON.parse(storedUsers));
+      const localUsers = JSON.parse(storedUsers);
+      // Varsayılan kullanıcıları her zaman ekle, tekrar etme
+      const existingUsernames = localUsers.map((u: any) => u.username);
+      const missingDefaults = DEFAULT_USERS.filter(u => !existingUsernames.includes(u.username));
+      allUsers = [...localUsers, ...missingDefaults];
     } else {
-      // Hiç kullanıcı yoksa varsayılan admini ekle
-      const initialUsers = [DEFAULT_ADMIN];
-      setUsers(initialUsers);
-      localStorage.setItem('lexguard_users', JSON.stringify(initialUsers));
+      // Hiç kullanıcı yoksa varsayılan kullanıcıları ekle
+      allUsers = DEFAULT_USERS;
     }
+    
+    setUsers(allUsers);
+    localStorage.setItem('lexguard_users', JSON.stringify(allUsers));
 
     // Oturum kontrolü
     const session = localStorage.getItem('lexguard_session');

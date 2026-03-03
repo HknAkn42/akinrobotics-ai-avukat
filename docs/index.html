@@ -4,22 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AKINROBOTICS AI AVUKAT</title>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-          }
-        }
-      }
-    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      // Tailwind dark mode variant'ını aktif et
-      tailwind.config.darkMode = 'class';
+      // Tailwind config'i script yüklendikten hemen sonra ayarla
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.tailwind) {
+          window.tailwind.config = {
+            darkMode: 'class',
+            theme: {
+              extend: {
+                fontFamily: {
+                  sans: ['Inter', 'sans-serif'],
+                },
+              }
+            }
+          };
+        }
+      });
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -54,6 +55,43 @@
       @keyframes typewriter {
         from { width: 0; }
         to { width: 100%; }
+      }
+      
+      /* Dark mode için özel stiller */
+      .dark {
+        color-scheme: dark;
+      }
+      
+      .dark .bg-white {
+        background-color: rgb(15 23 42) !important;
+      }
+      
+      .dark .bg-slate-50 {
+        background-color: rgb(15 23 42) !important;
+      }
+      
+      .dark .text-slate-900 {
+        color: rgb(248 250 252) !important;
+      }
+      
+      .dark .text-slate-800 {
+        color: rgb(226 232 240) !important;
+      }
+      
+      .dark .text-slate-700 {
+        color: rgb(203 213 225) !important;
+      }
+      
+      .dark .text-slate-600 {
+        color: rgb(148 163 184) !important;
+      }
+      
+      .dark .border-slate-200 {
+        border-color: rgb(51 65 85) !important;
+      }
+      
+      .dark .border-slate-300 {
+        border-color: rgb(71 85 105) !important;
       }
     </style>
 
