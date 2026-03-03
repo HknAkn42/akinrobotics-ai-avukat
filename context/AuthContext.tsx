@@ -20,7 +20,7 @@ const DEFAULT_ADMIN: User & { password?: string } = {
   name: 'Sistem Yöneticisi',
   role: 'ADMIN',
   username: 'admin', // Basit admin
-  password: 'password'
+  password: '1234'
 };
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
