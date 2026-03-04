@@ -41,20 +41,6 @@ const DEFAULT_USERS: (User & { password?: string })[] = [
     password: '1234'
   },
   {
-    id: 'mehmet-1',
-    name: 'Mehmet Yılmaz',
-    role: 'LAWYER',
-    username: 'mehmet',
-    password: '1234'
-  },
-  {
-    id: 'ayse-1',
-    name: 'Ayşe Demir',
-    role: 'LAWYER',
-    username: 'ayse',
-    password: '1234'
-  },
-  {
     id: 'arifegul-1',
     name: 'Arifegül',
     role: 'LAWYER',
