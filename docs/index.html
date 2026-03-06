@@ -4,24 +4,79 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AKINROBOTICS AI AVUKAT</title>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-          }
-        }
-      }
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      // Tailwind dark mode variant'ını aktif et
-      tailwind.config.darkMode = 'class';
-    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* Tailwind olmadan temel stiller */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8fafc;
+        color: #1e293b;
+      }
+      
+      .dark {
+        background-color: #0f172a !important;
+        color: #f8fafc !important;
+      }
+      
+      .btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 0.375rem;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.2s;
+      }
+      
+      .btn-primary {
+        background-color: #3b82f6;
+        color: white;
+      }
+      
+      .btn-primary:hover {
+        background-color: #2563eb;
+      }
+      
+      .input {
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.375rem;
+        font-size: 0.875rem;
+      }
+      
+      .card {
+        background: white;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      }
+      
+      .dark .card {
+        background: #1e293b !important;
+        border: 1px solid #334155 !important;
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f5f9; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #94a3b8; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #64748b; 
+      }
+    </style>
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -55,11 +110,66 @@
         from { width: 0; }
         to { width: 100%; }
       }
+      
+      /* Dark mode için özel stiller */
+      .dark {
+        color-scheme: dark;
+      }
+      
+      .dark .bg-white {
+        background-color: rgb(15 23 42) !important;
+      }
+      
+      .dark .bg-slate-50 {
+        background-color: rgb(15 23 42) !important;
+      }
+      
+      .dark .text-slate-900 {
+        color: rgb(248 250 252) !important;
+      }
+      
+      .dark .text-slate-800 {
+        color: rgb(226 232 240) !important;
+      }
+      
+      .dark .text-slate-700 {
+        color: rgb(203 213 225) !important;
+      }
+      
+      .dark .text-slate-600 {
+        color: rgb(148 163 184) !important;
+      }
+      
+      .dark .border-slate-200 {
+        border-color: rgb(51 65 85) !important;
+      }
+      
+      .dark .border-slate-300 {
+        border-color: rgb(71 85 105) !important;
+      }
     </style>
-    <script type="module" crossorigin src="/assets/index-Ui8cLxNA.js"></script>
-  </head>
+
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.39.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "diff": "https://esm.sh/diff@5.1.0",
+    "mammoth": "https://esm.sh/mammoth@1.6.0",
+    "pdfjs-dist": "https://esm.sh/pdfjs-dist@3.11.174",
+    "tesseract.js": "https://esm.sh/tesseract.js@5.0.5",
+    "docx": "https://esm.sh/docx@8.5.0",
+    "file-saver": "https://esm.sh/file-saver@^2.0.5"
+  }
+}
+</script>
+  <link rel="stylesheet" crossorigin href="./assets/index-B_7nEmfw.css">
+  <script type="module" crossorigin src="./assets/index-Ui8cLxNA.js"></script>
+</head>
   <body class="bg-slate-50 text-slate-900 antialiased overflow-hidden">
     <div id="root"></div>
-    <!-- Vite dev: tek giriş noktası; build'de Vite bu satırı otomatik günceller -->
 </body>
 </html>
